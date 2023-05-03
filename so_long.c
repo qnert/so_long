@@ -6,10 +6,15 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:43:03 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/03 12:54:20 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/03 13:45:57 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./MLX42/include/MLX42/MLX42.h"
+#include "so_long.h"
 
+int	main(void)
+{
+	void	*mlx;
 
+	mlx = mlx_init(50, 50, "Hammerkopf", true);
+}
