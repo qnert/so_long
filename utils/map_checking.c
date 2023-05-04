@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:12:31 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 17:21:16 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/04 17:22:07 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_check_map_rectangle(char **matrix)
 
 char	**ft_check_map(char *str)
 {
-	char **map_input;
+	char	**map_input;
 
 	if (ft_check_file_type(str) == 0)
 		return (NULL);
