@@ -1,18 +1,22 @@
 CC = cc
-CFLAGS =
+CFLAGS = -Wall -Wextra -Werror
 USER = $(shell whoami)
 MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 NAME = so_long
 
-SRCS = so_long.c
+SRCS = so_long.c ./utils/map_checking.c
 
-all: $(MLX) $(NAME)
+OBJS = $(SRCS:.c=.o)
+
+all: MLX42 $(NAME)
 
 $(NAME): $(OBJS)
-	@git clone https://github.com/codam-coding-college/MLX42.git
-	@cd MLX42 && cmake -B build && cmake --build build -j4
 	@cd libs && make
-	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS) ./libs/libs.a ./MLX42/build/libmlx42.a $(MLXFLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ./libs/libs.a ./MLX42/build/libmlx42.a $(MLXFLAGS)
+
+MLX42:
+	@if [ ! -d "MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
+	@cd MLX42 && cmake -B build && cmake --build build -j4
 
 clean:
 	@rm -rf MLX42
