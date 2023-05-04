@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 17:09:23 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/04 17:19:25 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 void	free_arr(char **arr);
 int		ft_check_file_type(char *str);
 char	**ft_check_map_file(char *str);
+int		check_map_input(char **matrix);
 char	**ft_check_map(char *str);
 
 #endif
