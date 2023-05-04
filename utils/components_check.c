@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:27:40 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 17:39:40 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:07:47 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,53 @@ int	ft_check_walls(char **matrix)
 		if (matrix[0][j] != '1' || matrix[i - 1][j] != '1')
 			return (0);
 		j++;
+	}
+	return (1);
+}
+
+int	ft_check_component(char **matrix, int comp)
+{
+	int	i;
+	int	j;
+	int	counter;
+
+	i = 0;
+	j = 0;
+	counter = 0;
+	while (matrix[i] != NULL)
+	{
+		j = 0;
+		while (matrix[i][j] != '\0')
+		{
+			if (matrix[i][j] == comp)
+				counter++;
+			j++;
+		}
+		i++;
+	}
+	return (counter);
+}
+
+int	ft_check_wrong_comp(char **matrix)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (matrix[i] != NULL)
+	{
+		j = 0;
+		while (matrix[i][j] != '\0')
+		{
+			if (matrix[i][j] == '1' || matrix[i][j] == '0' ||
+				matrix[i][j] == 'P' || matrix[i][j] == 'E' ||
+				matrix[i][j] == 'C')
+				j++;
+			else
+				return (0);
+		}
+		i++;
 	}
 	return (1);
 }

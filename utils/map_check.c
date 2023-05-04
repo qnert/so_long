@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:12:31 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 17:33:17 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:07:59 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,14 @@ char	**ft_check_map(char *str)
 	if (ft_check_map_rectangle(map_input) == 0)
 		return (NULL);
 	if (ft_check_walls(map_input) == 0)
+		return (NULL);
+	if (ft_check_component(map_input, 'C') == 0)
+		return (NULL);
+	if (ft_check_component(map_input, 'E') != 1)
+		return (NULL);
+	if (ft_check_component(map_input, 'P') != 1)
+		return (NULL);
+	if (ft_check_wrong_comp(map_input) == 0)
 		return (NULL);
 	return (map_input);
 }
