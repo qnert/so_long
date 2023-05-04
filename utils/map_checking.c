@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:12:31 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 16:11:59 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/04 17:11:15 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,17 @@ int	ft_check_file_type(char *str)
 	return (1);
 }
 
-int	ft_check_map_file(char *str)
+char	**ft_check_map_file(char *str)
 {
 	char				*map_input;
 	char				*get_line;
-	unsigned int		line_len;
-	unsigned int		new_line_len;
 	int					fd;
 
 	map_input = ft_calloc(1, 1);
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
-		return (ft_printf("Error occured: %s\n", strerror(errno)), -1);
+		return (ft_printf("Error occured: %s\n", strerror(errno)), NULL);
 	get_line = get_next_line(fd);
-	line_len = ft_strlen(get_line);
 	while (get_line != NULL)
 	{
 		map_input = ft_strjoin_free(map_input, get_line);
@@ -69,22 +66,18 @@ int	ft_check_map_file(char *str)
 		get_line = get_next_line(fd);
 		if (get_line == NULL)
 			break ;
-		new_line_len = ft_strlen(get_line);
-		if (!ft_strchr(get_line, '\n'))
-			new_line_len++;
-		if (new_line_len != line_len)
-			return (-1);
 	}
-	free(map_input);
-	return (fd);
+	return (ft_split(map_input, '\n'));
 }
 
-int	ft_check_map(char *str)
+char	**ft_check_map(char *str)
 {
-	int	fd;
+	char **map_input;
 
 	if (ft_check_file_type(str) == 0)
-		return (-1);
-	fd = ft_check_map_file(str);
-	return (fd);
+		return (NULL);
+	map_input = ft_check_map_file(str);
+	if (map_input == NULL)
+		return (NULL);
+	return (map_input);
 }
