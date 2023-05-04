@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 18:08:28 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:16:34 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stddef.h>
 # include <errno.h>
 
-//check map file and check rectangle form of the map and giving it backk as a matrix if valid map
+//check map | check rectangle |input to matrix
 void	free_arr(char **arr);
 int		ft_check_file_type(char *str);
 char	**ft_check_map_file(char *str);
