@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 18:16:34 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/05 10:23:21 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stddef.h>
 # include <errno.h>
 
+//struct for all game vars
 //check map | check rectangle |input to matrix
 void	free_arr(char **arr);
 int		ft_check_file_type(char *str);
@@ -30,5 +31,8 @@ char	**ft_check_map(char *str);
 int		ft_check_walls(char **matrix);
 int		ft_check_component(char **matrix, int comp);
 int		ft_check_wrong_comp(char **matrix);
+
+//game related funcs
+int		ft_game_begin(mlx_t *mlx);
 
 #endif

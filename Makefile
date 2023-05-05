@@ -4,7 +4,7 @@ USER = $(shell whoami)
 MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 NAME = so_long
 
-SRCS = so_long.c ./utils/map_check.c ./utils/components_check.c
+SRCS = so_long.c ./utils/map_check.c ./utils/components_check.c ./utils/game_funcs.c
 
 OBJS = $(SRCS:.c=.o)
 
