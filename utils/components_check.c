@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:27:40 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/04 18:16:18 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/05 11:06:24 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,20 @@ int	ft_check_wrong_comp(char **matrix)
 			else
 				return (0);
 		}
+		i++;
+	}
+	return (1);
+}
+
+int	ft_check_double_newline(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i + 1] != '\0')
+	{
+		if (str[i] == '\n' && str[i + 1] == '\n')
+			return (0);
 		i++;
 	}
 	return (1);

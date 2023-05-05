@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/05 10:23:21 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/05 11:00:32 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	**ft_check_map(char *str);
 int		ft_check_walls(char **matrix);
 int		ft_check_component(char **matrix, int comp);
 int		ft_check_wrong_comp(char **matrix);
+int		ft_check_double_newline(char *str);
 
 //game related funcs
 int		ft_game_begin(mlx_t *mlx);
