@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:43:03 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/05 09:03:43 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/05 09:14:07 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 			ft_printf("%s\n", map_input[i]);
 			i++;
 		}
+		free_arr(map_input);
 	}
 	return (0);
 }

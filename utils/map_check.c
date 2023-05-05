@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:12:31 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/05 09:07:42 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/05 09:12:52 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	ft_check_file_type(char *str)
 
 char	**ft_check_map_file(char *str)
 {
+	char				**return_matrix;
 	char				*map_input;
 	char				*get_line;
 	int					fd;
@@ -67,7 +68,8 @@ char	**ft_check_map_file(char *str)
 		if (get_line == NULL)
 			break ;
 	}
-	return (ft_split(map_input, '\n'));
+	return_matrix = ft_split(map_input, '\n');
+	return (free(map_input), return_matrix);
 }
 
 int	ft_check_map_rectangle(char **matrix)
