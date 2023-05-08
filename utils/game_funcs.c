@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 17:59:58 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:54:53 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,19 @@ void	ft_get_imgs(t_game *game)
 
 	tex_grass = mlx_load_png("./textures/grass.png");
 	game->grass = mlx_texture_to_image(game->mlx, tex_grass);
+	free (tex_grass);
 	tex_trainer = mlx_load_png("./textures/trainer.png");
 	game->trainer = mlx_texture_to_image(game->mlx, tex_trainer);
+	free (tex_trainer);
 	tex_pokemon = mlx_load_png("./textures/charizard.png");
 	game->pokemon = mlx_texture_to_image(game->mlx, tex_pokemon);
+	free (tex_pokemon);
 	tex_ball = mlx_load_png("./textures/ultra.png");
 	game->ball = mlx_texture_to_image(game->mlx, tex_ball);
+	free (tex_ball);
 	tex_tree = mlx_load_png("./textures/tree.png");
 	game->tree = mlx_texture_to_image(game->mlx, tex_tree);
+	free (tex_tree);
 }
 
 int	ft_game_begin(t_game *game, char **map_input)
@@ -57,5 +62,6 @@ int	ft_game_begin(t_game *game, char **map_input)
 	mlx_loop_hook(game->mlx, ft_all_hooks, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
+	free(game);
 	return (1);
 }
