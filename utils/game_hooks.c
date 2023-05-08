@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 18:16:45 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 20:44:34 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,18 @@ void	ft_move(void *param)
 			game->trainer->instances[0].x -= 5;
 }
 
+void	ft_collect(void	*param)
+{
+	t_game	*game;
+	int		i;
+
+	game = param;
+	i = 0;
+	ft_printf("%d\n", game->num_of_coll);
+}
+
 void	ft_all_hooks(void *param)
 {
 	ft_move(param);
+	ft_collect(param);
 }

@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 18:54:53 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 20:43:29 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_game	*ft_game_init(char **map_input)
 	while (map_input[i] != NULL)
 		i++;
 	game->height = i * 50;
+	game->num_of_coll = ft_check_component(map_input, 'C');
 	return (game);
 }
 

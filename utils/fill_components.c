@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:54:32 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 18:51:03 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 20:11:06 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	ft_fill_map(t_game *game, char **map_input)
 		i++;
 		y += 50;
 	}
+	ft_fill_component(game, map_input, '1', game->tree);
 	ft_fill_component(game, map_input, 'C', game->ball);
 	ft_fill_component(game, map_input, 'P', game->trainer);
 	ft_fill_component(game, map_input, 'E', game->pokemon);
-	ft_fill_component(game, map_input, '1', game->tree);
 }
 
 void	ft_fill_component(t_game *game, char **map_input,
