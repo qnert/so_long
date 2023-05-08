@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 14:53:20 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:44:58 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ typedef struct Game
 	mlx_t			*mlx;
 	int				width;
 	int				height;
-	mlx_image_t		*pikatchu;
-	mlx_image_t		*pokeball;
-	mlx_image_t		*pika_kid;
+	mlx_image_t		*pokemon;
+	mlx_image_t		*ball;
+	mlx_image_t		*trainer;
 	mlx_image_t		*tree;
+	mlx_image_t		*grass;
 }	t_game;
 
 //struct for all game vars
@@ -47,7 +48,7 @@ int		ft_check_double_newline(char *str);
 
 //game related funcs
 t_game	*ft_game_init(char **map_input);
-void	ft_fill_map(t_game *game, char **map_input);
+void	ft_get_imgs(t_game *game);
 int		ft_game_begin(t_game *game, char **map_input);
 
 //game hooks

@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 14:55:28 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:44:41 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,24 @@ t_game	*ft_game_init(char **map_input)
 	return (game);
 }
 
-void	ft_fill_map(t_game *game, char **map_input)
+void	ft_get_imgs(t_game *game)
 {
-	mlx_texture_t	*tex_pika_kid;
-	mlx_texture_t	*tex_pika;
-	mlx_texture_t	*tex_pokeball;
+	mlx_texture_t	*tex_trainer;
+	mlx_texture_t	*tex_pokemon;
+	mlx_texture_t	*tex_ball;
 	mlx_texture_t	*tex_tree;
+	mlx_texture_t	*tex_grass;
 
-	tex_pika_kid = mlx_load_png("./textures/pokekid.png");
-	game->pika_kid = mlx_texture_to_image(game->mlx, tex_pika_kid);
-	tex_pika = mlx_load_png("./textures/pikachu.png");
-	game->pikatchu = mlx_texture_to_image(game->mlx, tex_pika);
-	tex_pokeball = mlx_load_png("./textures/poke-ball.png");
-	game->pokeball = mlx_texture_to_image(game->mlx, tex_pokeball);
+	tex_grass = mlx_load_png("./textures/grass.png");
+	game->grass = mlx_texture_to_image(game->mlx, tex_grass);
+	tex_trainer = mlx_load_png("./textures/trainer.png");
+	game->trainer = mlx_texture_to_image(game->mlx, tex_trainer);
+	tex_pokemon = mlx_load_png("./textures/charizard.png");
+	game->pokemon = mlx_texture_to_image(game->mlx, tex_pokemon);
+	tex_ball = mlx_load_png("./textures/ultra.png");
+	game->ball = mlx_texture_to_image(game->mlx, tex_ball);
 	tex_tree = mlx_load_png("./textures/tree.png");
 	game->tree = mlx_texture_to_image(game->mlx, tex_tree);
-
-	if (map_input == NULL)
-		ft_printf("NULL\n");
-	mlx_image_to_window(game->mlx, game->pika_kid, 20, 20);
-	mlx_image_to_window(game->mlx, game->pikatchu, 300, 20);
-	mlx_image_to_window(game->mlx, game->pokeball, 200, 20);
-	mlx_image_to_window(game->mlx, game->tree, 100, 20);
 }
 
 int	ft_game_begin(t_game *game, char **map_input)
@@ -56,7 +52,7 @@ int	ft_game_begin(t_game *game, char **map_input)
 	game->mlx = mlx_init(game->width, game->height, "Gotcha!", false);
 	if (game->mlx == NULL)
 		return (ft_printf("%s\n", mlx_strerror(mlx_errno)), 0);
-	ft_fill_map(game, map_input);
+	ft_get_imgs(game);
 	mlx_loop_hook(game->mlx, ft_all_hooks, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
