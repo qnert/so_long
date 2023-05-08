@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 14:00:18 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 14:55:28 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_fill_map(t_game *game, char **map_input)
 	game->pokeball = mlx_texture_to_image(game->mlx, tex_pokeball);
 	tex_tree = mlx_load_png("./textures/tree.png");
 	game->tree = mlx_texture_to_image(game->mlx, tex_tree);
+
 	if (map_input == NULL)
 		ft_printf("NULL\n");
 	mlx_image_to_window(game->mlx, game->pika_kid, 20, 20);
