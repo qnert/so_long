@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 17:29:47 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:16:45 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,17 @@ void	ft_move(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	if (mlx_is_key_down(game->mlx, MLX_KEY_UP))
-		game->trainer->instances[0].y -= 5;
+		if (game->trainer->instances[0].y >= 60)
+			game->trainer->instances[0].y -= 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
-		game->trainer->instances[0].y += 5;
+		if (game->trainer->instances[0].y <= game->height - 100)
+			game->trainer->instances[0].y += 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
-		game->trainer->instances[0].x += 5;
+		if (game->trainer->instances[0].x <= game->width - 100)
+			game->trainer->instances[0].x += 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
-		game->trainer->instances[0].x -= 5;
+		if (game->trainer->instances[0].x >= 50)
+			game->trainer->instances[0].x -= 5;
 }
 
 void	ft_all_hooks(void *param)

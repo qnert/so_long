@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 17:44:58 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:01:38 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,9 @@ int		ft_game_begin(t_game *game, char **map_input);
 //game hooks
 void	ft_move(void *param);
 void	ft_all_hooks(void *param);
+
+//fill the map
+void	ft_fill_map(t_game *game, char **map_input);
+void	ft_fill_component(t_game *game, char **map_input, char c, mlx_image_t *img);
 
 #endif

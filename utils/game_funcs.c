@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 17:44:41 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:59:58 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	ft_game_begin(t_game *game, char **map_input)
 	if (game->mlx == NULL)
 		return (ft_printf("%s\n", mlx_strerror(mlx_errno)), 0);
 	ft_get_imgs(game);
+	ft_fill_map(game, map_input);
 	mlx_loop_hook(game->mlx, ft_all_hooks, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
