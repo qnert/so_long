@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 20:44:34 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 09:59:34 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,36 @@ void	ft_collect(void	*param)
 
 	game = param;
 	i = 0;
-	ft_printf("%d\n", game->num_of_coll);
+	while (i < game->tmp && game->num_of_coll > 0)
+	{
+		if (game->trainer->instances[0].x == game->ball->instances[i].x
+			&& game->trainer->instances[0].y == game->ball->instances[i].y + 5)
+		{
+			if (game->num_of_coll <= 1)
+				mlx_delete_image(game->mlx, game->ball);
+			else
+				game->ball->instances[i].y -= 200000;
+			game->num_of_coll--;
+		}
+		i++;
+		ft_printf("%d\n", game->num_of_coll);
+	}
+}
+
+void	ft_exit(void *param)
+{
+	t_game	*game;
+
+	game = param;
+	if (game->num_of_coll == 0
+		&& game->pokemon->instances[0].x + 5 == game->trainer->instances[0].x
+		&& game->trainer->instances[0].y == game->pokemon->instances[0].y + 5)
+		mlx_close_window(game->mlx);
 }
 
 void	ft_all_hooks(void *param)
 {
 	ft_move(param);
 	ft_collect(param);
+	ft_exit(param);
 }
