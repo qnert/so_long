@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 10:21:28 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 10:49:38 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,13 @@ void	ft_collect(void	*param)
 	i = 0;
 	while (i < game->tmp && game->num_of_coll > 0)
 	{
-		if (game->trainer->instances[0].x == game->ball->instances[i].x
-			&& game->trainer->instances[0].y == game->ball->instances[i].y + 5)
+		if (sqrt(pow(game->trainer->instances[0].x - game->ball->instances[i].x, 2) + pow(game->trainer->instances[0].y - game->ball->instances[i].y, 2)) < 25)
 		{
 			if (game->num_of_coll <= 1)
 				mlx_delete_image(game->mlx, game->ball);
 			else
 				game->ball->instances[i].y -= 200000;
-			game->num_of_coll--;
+				game->num_of_coll--;
 		}
 		i++;
 	}
@@ -66,11 +65,7 @@ void	ft_exit(void *param)
 	t_game	*game;
 
 	game = param;
-	if (game->num_of_coll == 0
-		&& game->pokemon->instances[0].x + 25
-		== game->trainer->instances[0].x + 25
-		&& game->trainer->instances[0].y - 25
-		== game->pokemon->instances[0].y - 25)
+	if (game->num_of_coll == 0 && (sqrt(pow(game->trainer->instances[0].x - game->pokemon->instances[0].x, 2) + pow(game->trainer->instances[0].y - game->pokemon->instances[0].y, 2))) < 25)
 		mlx_close_window(game->mlx);
 }
 
