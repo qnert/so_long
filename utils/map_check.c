@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:12:31 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/08 20:28:49 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 16:44:30 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_check_file_type(char *str)
 		i++;
 	i--;
 	if (ft_strncmp(split_file[i], "ber", ft_strlen(split_file[i])) != 0)
-		return (0);
+		return (free_arr(split_file), 0);
 	free_arr(split_file);
 	return (1);
 }
