@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 09:58:02 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 10:01:57 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct Game
 	int				height;
 	int				num_of_coll;
 	int				tmp;
+	int				moves;
 	mlx_image_t		*pokemon;
 	mlx_image_t		*ball;
 	mlx_image_t		*trainer;

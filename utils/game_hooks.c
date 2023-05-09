@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 09:59:34 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 10:21:28 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ void	ft_move(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
 		if (game->trainer->instances[0].x >= 50)
 			game->trainer->instances[0].x -= 5;
+	if (mlx_is_key_down(game->mlx, MLX_KEY_UP)
+		|| mlx_is_key_down(game->mlx, MLX_KEY_DOWN)
+		|| mlx_is_key_down(game->mlx, MLX_KEY_RIGHT)
+		|| mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
+		game->moves++;
+	ft_printf("%d\n", game->moves);
 }
 
 void	ft_collect(void	*param)
@@ -52,7 +58,6 @@ void	ft_collect(void	*param)
 			game->num_of_coll--;
 		}
 		i++;
-		ft_printf("%d\n", game->num_of_coll);
 	}
 }
 
@@ -62,8 +67,10 @@ void	ft_exit(void *param)
 
 	game = param;
 	if (game->num_of_coll == 0
-		&& game->pokemon->instances[0].x + 5 == game->trainer->instances[0].x
-		&& game->trainer->instances[0].y == game->pokemon->instances[0].y + 5)
+		&& game->pokemon->instances[0].x + 25
+		== game->trainer->instances[0].x + 25
+		&& game->trainer->instances[0].y - 25
+		== game->pokemon->instances[0].y - 25)
 		mlx_close_window(game->mlx);
 }
 
