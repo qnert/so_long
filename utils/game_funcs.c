@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 11:38:45 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 13:03:03 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_game	*ft_game_init(char **map_input)
 	game->num_of_coll = ft_check_component(map_input, 'C');
 	game->tmp = game->num_of_coll;
 	game->moves = 0;
+	game->map_input = map_input;
 	return (game);
 }
 
@@ -71,7 +72,7 @@ int	ft_game_begin(t_game *game, char **map_input)
 	if (game->mlx == NULL)
 		return (ft_printf("%s\n", mlx_strerror(mlx_errno)), 0);
 	ft_get_imgs(game);
-	ft_fill_map(game, map_input);
+	ft_fill_map(game);
 	mlx_loop_hook(game->mlx, ft_all_hooks, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);

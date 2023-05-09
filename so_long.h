@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 11:39:05 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 13:02:39 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct Game
 	int				num_of_coll;
 	int				tmp;
 	int				moves;
+	char			**map_input;
 	mlx_image_t		*pokemon;
 	mlx_image_t		*ball;
 	mlx_image_t		*trainer;
@@ -62,7 +63,7 @@ void	ft_exit(void *param);
 void	ft_all_hooks(void *param);
 
 //fill the map
-void	ft_fill_map(t_game *game, char **map_input);
-void	ft_fill_component(t_game *game, char **map_input, char c, mlx_image_t *img);
+void	ft_fill_map(t_game *game);
+void	ft_fill_component(t_game *game, char c, mlx_image_t *img);
 
 #endif
