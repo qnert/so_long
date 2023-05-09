@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 11:40:29 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 12:58:09 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	ft_collect(void	*param)
 	i = 0;
 	while (i < game->tmp && game->num_of_coll > 0)
 	{
-		x = game->trainer->instances[0].x - game->ball->instances[i].x;
+		x = game->trainer->instances[0].x - game->ball->instances[i].x - 10;
 		y = game->trainer->instances[0].y - game->ball->instances[i].y;
-		if (ft_distance_of_points(x, y) < 25)
+		if (ft_distance_of_points(x, y) < 35)
 		{
 			if (game->num_of_coll <= 1)
 				mlx_delete_image(game->mlx, game->ball);
@@ -71,9 +71,9 @@ void	ft_exit(void *param)
 	int		y;
 
 	game = param;
-	x = game->trainer->instances[0].x - game->pokemon->instances[0].x;
+	x = game->trainer->instances[0].x - game->pokemon->instances[0].x - 10;
 	y = game->trainer->instances[0].y - game->pokemon->instances[0].y;
-	if (game->num_of_coll == 0 && ft_distance_of_points(x, y) < 25)
+	if (game->num_of_coll == 0 && ft_distance_of_points(x, y) < 35)
 		mlx_close_window(game->mlx);
 }
 
