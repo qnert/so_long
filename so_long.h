@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 10:01:57 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 11:39:05 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		ft_check_double_newline(char *str);
 //game related funcs
 t_game	*ft_game_init(char **map_input);
 void	ft_get_imgs(t_game *game);
+int		ft_distance_of_points(int x, int y);
 int		ft_game_begin(t_game *game, char **map_input);
 
 //game hooks

@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 10:02:06 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/09 11:38:45 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ void	ft_get_imgs(t_game *game)
 	tex_tree = mlx_load_png("./textures/tree.png");
 	game->tree = mlx_texture_to_image(game->mlx, tex_tree);
 	free (tex_tree);
+}
+
+int	ft_distance_of_points(int x, int y)
+{
+	int	i;
+	int	j;
+
+	i = pow(x, 2);
+	j = pow(y, 2);
+	return (sqrt(i + j));
 }
 
 int	ft_game_begin(t_game *game, char **map_input)
