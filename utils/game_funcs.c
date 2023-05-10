@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 16:44:00 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/10 09:38:29 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_game	*ft_game_init(char **map_input)
 	game->tmp = game->num_of_coll;
 	game->moves = 0;
 	game->map_input = map_input;
+	ft_create_matrix_xy(game);
 	return (game);
 }
 

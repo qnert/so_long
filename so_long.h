@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 13:02:39 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/10 09:36:25 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct Game
 	int				tmp;
 	int				moves;
 	char			**map_input;
+	int				**tree_coordinates;
 	mlx_image_t		*pokemon;
 	mlx_image_t		*ball;
 	mlx_image_t		*trainer;
@@ -66,4 +67,7 @@ void	ft_all_hooks(void *param);
 void	ft_fill_map(t_game *game);
 void	ft_fill_component(t_game *game, char c, mlx_image_t *img);
 
+//walls funcs
+void	ft_create_matrix_xy(t_game *game);
+void	ft_fill_matrix(t_game *game);
 #endif
