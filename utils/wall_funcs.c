@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:04:41 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/10 09:19:51 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/10 10:01:40 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	ft_fill_matrix(t_game *game)
 		{
 			if (game->map_input[i][j] == '1')
 			{
-				game->tree_coordinates[k][0] = j;
-				game->tree_coordinates[k][1] = i;
+				game->tree_coordinates[k][0] = j * 50 + 25;
+				game->tree_coordinates[k][1] = i * 50 + 25;
 				k++;
 			}
 			j++;
