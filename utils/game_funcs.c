@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/17 19:28:20 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/17 19:43:38 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,19 @@ void	ft_get_imgs(t_game *game)
 
 	tex_grass = mlx_load_png("./textures/grass.png");
 	game->grass = mlx_texture_to_image(game->mlx, tex_grass);
-	free (tex_grass);
+	mlx_delete_texture(tex_grass);
 	tex_trainer = mlx_load_png("./textures/trainer.png");
 	game->trainer = mlx_texture_to_image(game->mlx, tex_trainer);
-	free (tex_trainer);
+	mlx_delete_texture(tex_trainer);
 	tex_pokemon = mlx_load_png("./textures/charizard.png");
 	game->pokemon = mlx_texture_to_image(game->mlx, tex_pokemon);
-	free (tex_pokemon);
+	mlx_delete_texture(tex_pokemon);
 	tex_ball = mlx_load_png("./textures/ultra.png");
 	game->ball = mlx_texture_to_image(game->mlx, tex_ball);
-	free (tex_ball);
+	mlx_delete_texture(tex_ball);
 	tex_tree = mlx_load_png("./textures/tree.png");
 	game->tree = mlx_texture_to_image(game->mlx, tex_tree);
-	free (tex_tree);
+	mlx_delete_texture(tex_tree);
 }
 
 int	ft_distance_of_points(int x, int y)
