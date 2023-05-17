@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/09 15:05:42 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/17 19:30:40 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void	ft_move(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	if (mlx_is_key_down(game->mlx, MLX_KEY_UP))
-		if (y >= 60)
+		if (ft_walls_up(game) == 1)
 			game->trainer->instances[0].y -= 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
-		if (y <= game->height - 100)
+		if (ft_walls_down(game) == 1)
 			game->trainer->instances[0].y += 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
-		if (x <= game->width - 100)
+		if (ft_walls_right(game) == 1)
 			game->trainer->instances[0].x += 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
-		if (x >= 50)
+		if (ft_walls_left(game) == 1)
 			game->trainer->instances[0].x -= 5;
 }
 

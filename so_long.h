@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:57:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/10 09:59:39 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/17 19:28:43 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ void	ft_all_hooks(void *param);
 void	ft_fill_map(t_game *game);
 void	ft_fill_component(t_game *game, char c, mlx_image_t *img);
 
-//walls funcs
-void	ft_create_matrix_xy(t_game *game);
-void	ft_fill_matrix(t_game *game);
+//walls check
+int		ft_walls_up(void *param);
+int		ft_walls_down(void *param);
+int		ft_walls_left(void *param);
+int		ft_walls_right(void *param);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:43:03 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/10 10:00:01 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/17 19:30:04 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 		if (ft_game_begin(game, map_input) == 0)
 			return (0);
 		free_arr(map_input);
+		system("leaks so_long");
 	}
 	return (0);
 }
