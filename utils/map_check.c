@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:12:31 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/17 19:41:53 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/18 12:37:34 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ char	**ft_check_map_file(char *str)
 	map_input = ft_calloc(1, 1);
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
-		return (free(map_input), ft_printf("Error occured: %s\n", strerror(errno)), NULL);
+	{
+		free(map_input);
+		return (ft_printf("Error occured: %s\n", strerror(errno)), NULL);
+	}
 	get_line = get_next_line(fd);
 	while (get_line != NULL)
 	{

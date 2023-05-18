@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:22:37 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/17 19:43:38 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/18 12:16:14 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	ft_game_begin(t_game *game, char **map_input)
 		return (ft_printf("%s\n", mlx_strerror(mlx_errno)), 0);
 	ft_get_imgs(game);
 	ft_fill_map(game);
+	mlx_put_string(game->mlx, "GEILE SAU", 0, 0);
 	mlx_loop_hook(game->mlx, ft_all_hooks, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
