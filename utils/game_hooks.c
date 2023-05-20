@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:12:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/17 19:30:40 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/20 13:29:30 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,24 @@ void	ft_move(void *param)
 
 void	ft_show_moves(void *param)
 {
-	t_game	*game;
+	t_game				*game;
+	static mlx_image_t	*string;
+	char				*moves_s;
 
 	game = param;
-	if (mlx_is_key_down(game->mlx, MLX_KEY_UP)
-		|| mlx_is_key_down(game->mlx, MLX_KEY_DOWN)
-		|| mlx_is_key_down(game->mlx, MLX_KEY_RIGHT)
-		|| mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
+	if ((mlx_is_key_down(game->mlx, MLX_KEY_UP)
+			&& ft_walls_up(game) == 1)
+		|| (mlx_is_key_down(game->mlx, MLX_KEY_DOWN)
+			&& ft_walls_down(game) == 1)
+		|| (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT)
+			&& ft_walls_right(game) == 1)
+		|| (mlx_is_key_down(game->mlx, MLX_KEY_LEFT)
+			&& ft_walls_left(game) == 1))
 		game->moves++;
-	ft_printf("%d\n", game->moves);
+	mlx_delete_image(game->mlx, string);
+	moves_s = ft_itoa(game->moves);
+	string = mlx_put_string(game->mlx, moves_s, 140, 0);
+	free(moves_s);
 }
 
 void	ft_collect(void	*param)

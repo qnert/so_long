@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 10:21:24 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/20 12:08:19 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/20 13:29:02 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ int	ft_copy_and_check(char **map_input)
 		y++;
 	}
 	copy = ft_copy_matrix(map_input);
-	nb = ft_check_valid_path(copy, x, y);
+	nb = ft_check_valid_path(copy, y, x);
 	return (free_arr(copy), nb);
 }
