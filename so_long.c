@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:43:03 by skunert           #+#    #+#             */
-/*   Updated: 2023/05/20 10:52:42 by skunert          ###   ########.fr       */
+/*   Updated: 2023/05/20 15:04:45 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		map_input = ft_check_map(argv[1]);
-		system("leaks so_long");
 		game = NULL;
 		if (map_input == NULL)
 			return (0);
 		if (ft_game_begin(game, map_input) == 0)
 			return (0);
 		free_arr(map_input);
-		system("leaks so_long");
 	}
 	return (0);
 }
