@@ -49,7 +49,7 @@ The `so_long` project is a simple 2D game created in C using MiniLibX. In this g
 1111111111111
 ```
 
-###Usage
+### Usage
 ```bash
 make
 ```
